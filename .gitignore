@@ -9,3 +9,5 @@ public/admin/
 public/media/scroll-source.mp4
 
 dist-media/
+
+public/frames/*.webp

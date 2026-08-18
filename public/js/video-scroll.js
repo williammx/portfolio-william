@@ -47,6 +47,11 @@
       total = manifest.count;
       const pad = manifest.pad || 4;
       const ext = manifest.ext || 'webp';
+      /* Os frames podem morar fora do site (release do GitHub, R2, etc).
+         'base' é a URL de onde baixar e 'prefix' entra antes do número,
+         porque um release não tem pastas e os nomes precisam ser únicos. */
+      const base = manifest.base || (DIR + '/');
+      const prefix = manifest.prefix || '';
       frames = new Array(total);
 
       // primeiro 1 de cada 8 para a animação já responder,
@@ -78,7 +83,7 @@
         // handlers ANTES do src: com a imagem em cache o load dispara na hora
         img.onload = () => onLoaded(i, img);
         img.onerror = () => { loaded++; };
-        img.src = `${DIR}/${String(i + 1).padStart(pad, '0')}.${ext}`;
+        img.src = `${base}${prefix}${String(i + 1).padStart(pad, '0')}.${ext}`;
         if (img.complete && img.naturalWidth) onLoaded(i, img);
         if (k % 12 === 11) await new Promise(r => setTimeout(r, 0));
       }
