@@ -1,9 +1,7 @@
 {
-  "count": 240,
+  "count": 190,
   "pad": 4,
   "ext": "webp",
   "dir": "frames",
-  "width": 1920,
-  "base": "https://github.com/williammx/portfolio-william/releases/download/media-v1/",
-  "prefix": "s1-"
+  "width": 1600
 }

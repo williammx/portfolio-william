@@ -254,12 +254,7 @@ window.SITE = {
   /* ---------- mídia ----------
      Deixe "" para usar o fundo animado em CSS (padrão).
      Coloque seu arquivo em media/ e aponte aqui, ex: "media/hero.mp4" */
-  /* O vídeo do hero fica FORA do repositório, num release do GitHub.
-     Assim ele pode ser grande e em alta qualidade sem pesar o site.
-     Para trocar: gere o novo arquivo e rode
-       gh release upload media-v1 caminho/hero-hq.mp4 --clobber
-     mantendo o mesmo nome, que a URL abaixo continua valendo. */
-  heroVideo: "https://github.com/williammx/portfolio-william/releases/download/media-v1/hero-hq.mp4",
+  heroVideo: "media/hero.mp4",
   heroPoster: "media/hero-poster.webp",
   loaderVideo: "",
   galleryVideo: "",
