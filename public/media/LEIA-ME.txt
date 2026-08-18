@@ -1,0 +1,6 @@
+Coloque aqui o video que vai virar a animacao de scroll, depois rode:
+
+    npm run frames -- public/media/seu-video.mp4
+
+Os frames sao gerados em public/frames/ e a secao .vscroll
+encontra tudo sozinha pelo manifest.json.

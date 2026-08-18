@@ -1,0 +1,509 @@
+/* ============================================================
+   HOME — hero sticky, faixa de texto (STM), galeria em anel 3D,
+   grid de projetos
+   ============================================================ */
+
+/* ============ 1. HERO STICKY ============ */
+.scroll-track { position: relative; }
+/* exatamente uma tela: sem espera parada antes do vídeo entrar */
+.scroll-track { height: 100vh; }
+.sticky-container { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+
+.hero-section { position: relative; height: 100vh; overflow: hidden; }
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.58;                      /* colorido, sem grayscale */
+  filter: contrast(1.05) saturate(1.08);
+  will-change: transform;
+}
+
+/* ---- malha de cruzes que acende com o mouse ----
+   canvas com marcas em X; a proximidade do ponteiro ilumina as marcas
+   e liga as vizinhas com linhas. Sem z-index: fica logo acima do vídeo
+   pela ordem do HTML e abaixo de todo o texto. */
+.hero-grid {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s var(--ease-out-quint);
+}
+.hero-grid.is-ready { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) { .hero-grid { display: none; } }
+
+/* fundo animado em CSS — usado quando não há vídeo definido no config */
+.hero-bg {
+  position: absolute; inset: -20%;
+  background:
+    radial-gradient(38% 52% at 22% 32%, rgba(255,255,255,0.16), transparent 70%),
+    radial-gradient(32% 44% at 76% 62%, rgba(200,154,69,0.14), transparent 72%),
+    repeating-linear-gradient(102deg,
+      rgba(255,255,255,0.055) 0 2px, transparent 2px 26px);
+  filter: blur(28px);
+  animation: heroDrift 26s var(--ease-in-out) infinite alternate;
+  will-change: transform;
+}
+@keyframes heroDrift {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.04) rotate(0deg); }
+  50%  { transform: translate3d(2%, 3%, 0) scale(1.12) rotate(1.4deg); }
+  100% { transform: translate3d(4%, -3%, 0) scale(1.06) rotate(-1deg); }
+}
+/* ---- vinheta como camada real ----
+   virou elemento (e não ::after) para poder ficar ABAIXO dos textos.
+   O centro segue limpo, onde a inversão precisa de luz; as bordas e a
+   faixa de baixo escurecem, que é onde mora o texto pequeno. */
+.hero-vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 0%, rgba(0,0,0,0.75) 78%);
+}
+
+/* ---- inversão de cor sobre o vídeo ----
+   Só o texto GRANDE inverte. Em corpo pequeno o difference deixa
+   cinza contra cinza e mata a leitura.
+
+   Detalhe técnico: um elemento com z-index vira contexto de empilhamento
+   e isola os filhos, então o blend deixaria de enxergar o vídeo. Por isso
+   .overlay-ui e .hero-claim ficam SEM z-index — a ordem no HTML resolve
+   a sobreposição e o blend continua alcançando o vídeo. */
+.huge-text,
+.hero-claim h1 {
+  mix-blend-mode: difference;
+}
+
+/* texto pequeno: branco sólido, sem blend e sem sombra */
+.small-tag,
+.services-list,
+.hero-quick-links,
+.bottom-footer,
+.bottom-ui-container,
+.scroll-down,
+.hero-claim p {
+  mix-blend-mode: normal;
+}
+
+/* -- overlay UI -- */
+.overlay-ui {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  /* o padding inferior reserva espaço para a .bottom-ui-container */
+  padding: calc(var(--nav-h) + 3vh) var(--gutter) calc(var(--gutter) + 92px);
+  pointer-events: none;
+}
+.overlay-ui a, .overlay-ui button { pointer-events: auto; }
+
+.top-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: clamp(8px, 1.5vw, 24px); width: 100%;
+}
+.huge-text {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 9.6vw, 8.5rem);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase; overflow: hidden;
+  white-space: nowrap; flex: 0 1 auto; min-width: 0;
+}
+.huge-text > div { display: block; will-change: transform; }
+.small-tag {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-dim);
+  white-space: nowrap; padding-bottom: 0.6em;
+}
+
+.grid-4 {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 32px);
+}
+.col-right { grid-column: 4; }
+.border-top-line { border-top: 1px solid var(--color-line); padding-top: 1rem; }
+
+.services-list {
+  display: flex; flex-direction: column; gap: 0.35rem;
+  font-size: var(--text-xs); letter-spacing: var(--tracking-label);
+  color: var(--color-dim);
+}
+.services-list.bordered { border-left: 1px solid var(--color-line); padding-left: 1rem; }
+.services-list_en { text-transform: uppercase; }
+
+.overlay-bottom { display: flex; flex-direction: column; gap: 1.2rem; }
+.hero-quick-links { display: flex; flex-wrap: wrap; gap: clamp(12px, 2vw, 28px); }
+.hero-quick-links a {
+  font-size: var(--text-xs); letter-spacing: var(--tracking-label);
+  text-transform: uppercase; color: var(--color-dim);
+  transition: color 0.35s;
+}
+.hero-quick-links a:hover { color: var(--color-text); }
+
+.bottom-footer { align-items: end; }
+.footer-col div {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-meta);
+  color: var(--color-faint); line-height: 1.8;
+}
+.footer-links { display: flex; gap: 1rem; justify-content: flex-end; }
+
+/* claim central do hero — sem z-index, para o blend do h1 alcançar o vídeo */
+.hero-claim {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; width: min(680px, 82vw); pointer-events: none;
+}
+.hero-claim h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--text-display-xs);
+  line-height: 1.15; letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  /* altura fixa evita o texto de apoio pular quando a frase troca */
+  min-height: 2.3em;
+  display: flex; align-items: center; justify-content: center;
+}
+/* cada frase entra e sai por trás de uma máscara */
+.hero-claim h1 > span {
+  display: block; will-change: transform, opacity;
+}
+.hero-claim p {
+  margin-top: 1rem; font-size: var(--text-sm);
+  letter-spacing: var(--tracking-copy); color: var(--color-dim);
+}
+
+/* -- barra inferior: contador de slides -- */
+.bottom-ui-container {
+  position: absolute; left: 0; bottom: 0; z-index: 5; width: 100%;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 1rem;
+  padding: 1.2rem var(--gutter);
+  border-top: 1px solid var(--color-line);
+}
+.slide-section {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-dim);
+}
+.slide-counter { display: flex; align-items: center; gap: 1rem; }
+.counter-nav {
+  cursor: pointer; color: var(--color-faint);
+  font-size: var(--text-md); transition: color 0.3s; user-select: none;
+}
+.counter-nav:hover { color: var(--color-text); }
+.counter-display {
+  font-family: var(--font-family-accent);
+  font-size: var(--text-sm); letter-spacing: var(--tracking-wide);
+  font-variant-numeric: tabular-nums; display: flex; gap: 0.4rem;
+}
+.counter-divider { color: var(--color-faint); }
+.slide-title-container { text-align: right; overflow: hidden; }
+.slide-title {
+  font-size: var(--text-sm); letter-spacing: var(--tracking-label);
+  text-transform: uppercase; will-change: transform;
+}
+
+/* indicador DOWN */
+.scroll-down {
+  position: absolute; left: 50%; bottom: 5.2rem; z-index: 5;
+  transform: translateX(-50%); display: flex; flex-direction: column;
+  align-items: center; gap: 0.5rem;
+}
+.scroll-down span {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  color: var(--color-faint); text-transform: uppercase;
+}
+.scroll-down i {
+  display: block; width: 1px; height: 32px;
+  background: linear-gradient(to bottom, var(--color-text), transparent);
+  animation: scrollPulse 1.9s var(--ease-in-out) infinite;
+}
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* máscara escura de saída do hero */
+.dark-wrapper-mask {
+  position: absolute; inset: 0; z-index: 6; pointer-events: none;
+  clip-path: inset(100% 0 0 0);
+}
+.dark-wrapper { width: 100%; height: 100%; background: var(--color-bg); }
+
+/* ============ 2. FAIXA STM (texto rolante + letras matriciais) ============ */
+.stm-logo {
+  position: sticky; top: 0; height: 100vh; z-index: 2;
+  display: grid; place-items: center; pointer-events: none;
+}
+.stm-mark {
+  display: flex; gap: clamp(10px, 2.2vw, 36px);
+  mix-blend-mode: difference;
+}
+.stm-letter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: clamp(3px, 0.5vw, 8px);
+  width: clamp(40px, 6vw, 88px);
+  aspect-ratio: 3 / 5;
+}
+.stm-dot {
+  border-radius: 50%; background: var(--color-text);
+  opacity: 0; transform: scale(0.2); will-change: transform, opacity;
+}
+
+.stm-section { position: relative; z-index: 1; }
+.stm-content {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 8vw, 140px);
+  /* respiro no topo e no fim para o logo matricial ter curso de scroll */
+  padding: 60vh var(--gutter) 60vh;
+}
+.stm-col { display: flex; flex-direction: column; }
+.stm-col--left { align-items: flex-start; text-align: left; }
+.stm-col--right { align-items: flex-end; text-align: right; }
+/* cada linha ocupa um bloco alto: é isso que dá o curso de scroll da seção */
+.stm-group {
+  min-height: clamp(140px, 22vh, 260px);
+  display: flex; align-items: center;
+}
+.stm-group h3 {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.4rem, 3.2vw, 3rem);
+  line-height: 1.1; letter-spacing: var(--tracking-tight);
+  text-transform: uppercase; color: var(--color-faint);
+  transition: color 0.6s var(--ease-out-quint);
+}
+.stm-group.is-lit h3 { color: var(--color-text); }
+.stm-group p {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: rgba(255,255,255,0.18);
+}
+.stm-tag {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  color: var(--color-accent); text-transform: uppercase;
+}
+
+/* ============ 3. GALERIA EM ANEL (Three.js) ============ */
+/* 200vh dá curso de scroll para o anel girar enquanto fica preso na tela */
+.ccap-section { position: relative; height: 200vh; }
+.ring-gallery-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+}
+#sketch { position: absolute; inset: 0; }
+#sketch canvas { width: 100% !important; height: 100% !important; display: block; }
+
+.ccap-side-fade {
+  position: absolute; top: 0; height: 100%; width: clamp(80px, 14vw, 240px);
+  z-index: 2; pointer-events: none;
+}
+.ccap-side-fade-left { left: 0; background: linear-gradient(to right, var(--color-bg), transparent); }
+.ccap-side-fade-right { right: 0; background: linear-gradient(to left, var(--color-bg), transparent); }
+
+.hero-dom {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(var(--nav-h) + 4vh) var(--gutter) var(--gutter);
+  pointer-events: none;
+}
+.giant-title {
+  font-family: var(--font-family-display);
+  /* menor que o display: aqui ele divide a tela com o anel 3D */
+  font-size: clamp(1.5rem, 3.2vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase; text-align: center;
+  /* equilibra as linhas em vez de deixar uma cheia e outra curta */
+  max-width: 24ch; margin-inline: auto;
+  text-wrap: balance;
+}
+
+/* ---- visualizador em tela cheia ---- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 350000;
+  display: grid; place-items: center;
+  padding: clamp(16px, 4vw, 60px);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden; cursor: zoom-out;
+  transition: opacity 0.4s var(--ease-out-quint), visibility 0.4s;
+}
+.lightbox.is-on { opacity: 1; visibility: visible; }
+.lightbox__fig {
+  margin: 0; max-width: 100%; max-height: 100%;
+  display: flex; flex-direction: column; gap: 1rem; align-items: center;
+  transform: scale(0.96);
+  transition: transform 0.5s var(--ease-out-quint);
+}
+.lightbox.is-on .lightbox__fig { transform: scale(1); }
+.lightbox__fig img {
+  max-width: 100%; max-height: calc(100vh - 12rem);
+  object-fit: contain; display: block;
+}
+.lightbox__fig figcaption {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-dim);
+}
+.lightbox__close {
+  position: absolute; top: clamp(12px, 2vw, 28px); right: clamp(12px, 2vw, 28px);
+  width: 44px; height: 44px; font-size: 30px; line-height: 1;
+  color: #fff; opacity: 0.6; transition: opacity 0.3s;
+}
+.lightbox__close:hover { opacity: 1; }
+.sub-title {
+  text-align: center; margin-top: 0.8rem;
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-dim);
+}
+.service-tags {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: clamp(8px, 1.4vw, 20px);
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-faint);
+}
+.service-tags span::before { content: "( "; }
+.service-tags span::after { content: " )"; }
+
+/* ============ 4. GALERIA DE PROJETOS ============ */
+.s3-gallery-section { position: relative; }
+
+.gallery-header {
+  position: relative; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gutter);
+}
+.gallery-header-video { position: absolute; inset: 0; z-index: 0; }
+.gallery-header-video video {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.25; filter: grayscale(1);
+}
+.gallery-header::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+}
+.gallery-header > *:not(.gallery-header-video) { position: relative; z-index: 2; }
+.gallery-header-label {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-dim); margin-bottom: 1.5rem;
+}
+.gallery-header-title {
+  font-family: var(--font-family-display);
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}
+.gh-line { display: block; overflow: hidden; }
+.gh-line > span { display: block; will-change: transform; }
+.gallery-header p {
+  margin-top: 1.5rem; font-size: var(--text-sm);
+  letter-spacing: var(--tracking-copy); color: var(--color-dim);
+  max-width: 48ch;
+}
+
+/* grid escalonado */
+.pg-gallery {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: clamp(16px, 3vw, 48px);
+  padding: clamp(60px, 10vw, 160px) var(--gutter);
+}
+.pg-item { position: relative; }
+.pg-item-1 { grid-column: 1 / 6; }
+.pg-item-2 { grid-column: 7 / 13; margin-top: clamp(40px, 10vw, 160px); }
+.pg-item-3 { grid-column: 2 / 7; }
+.pg-item-4 { grid-column: 8 / 13; margin-top: clamp(-40px, -4vw, 0px); }
+.pg-item-5 { grid-column: 1 / 6; }
+.pg-item-6 { grid-column: 7 / 13; margin-top: clamp(40px, 8vw, 120px); }
+.pg-item-7 { grid-column: 2 / 7; }
+.pg-item-8 { grid-column: 8 / 13; margin-top: clamp(-40px, -4vw, 0px); }
+
+.pg-img-wrap {
+  position: relative; overflow: hidden; aspect-ratio: 16 / 10;
+  background: #0a0a0a;
+}
+.pg-item-1 .pg-img-wrap, .pg-item-4 .pg-img-wrap,
+.pg-item-7 .pg-img-wrap { aspect-ratio: 16 / 9; }
+.pg-img-wrap img {
+  width: 100%; height: 120%; object-fit: cover;
+  filter: brightness(0.94);            /* colorida */
+  transition: filter 0.7s var(--ease-out-quint), transform 0.9s var(--ease-out-quint);
+  will-change: transform;
+}
+.pg-item a:hover .pg-img-wrap img { filter: brightness(1.06); transform: scale(1.04); }
+
+.pg-meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; padding-top: 1rem;
+}
+.pg-title {
+  font-family: var(--font-family-display);
+  font-size: var(--text-md); text-transform: uppercase;
+  letter-spacing: var(--tracking-brand);
+}
+.pg-tag {
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-caps);
+  text-transform: uppercase; color: var(--color-faint);
+}
+.pg-index {
+  font-family: var(--font-family-accent);
+  font-size: var(--text-2xs); color: var(--color-accent);
+}
+
+/* faixa marquee */
+.marquee {
+  overflow: hidden; white-space: nowrap;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  padding: clamp(14px, 2vw, 26px) 0;
+}
+.marquee__track { display: inline-flex; will-change: transform; }
+.marquee__track span {
+  font-family: var(--font-family-display);
+  font-size: var(--text-lg); text-transform: uppercase;
+  letter-spacing: var(--tracking-brand); color: var(--color-dim);
+  margin-right: 3rem;
+}
+
+/* números / stats */
+.stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(20px, 4vw, 60px);
+  padding: clamp(60px, 9vw, 140px) var(--gutter);
+}
+.stat__num {
+  font-family: var(--font-family-display);
+  font-size: var(--text-display-xs);
+  line-height: 1; letter-spacing: var(--tracking-tight);
+}
+.stat__label {
+  margin-top: 0.6rem; font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .col-right { grid-column: 2; }
+  .pg-item-1, .pg-item-3, .pg-item-5 { grid-column: 1 / 8; }
+  .pg-item-2, .pg-item-4, .pg-item-6 { grid-column: 6 / 13; }
+}
+@media (max-width: 720px) {
+  .top-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+  .small-tag { padding-bottom: 0; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .col-right { grid-column: 1; }
+  .services-list.bordered { border-left: 0; padding-left: 0; }
+  /* no celular a lista de serviços some para o claim central respirar */
+  .services-list_en { display: none; }
+  .hero-claim { top: 56%; width: min(420px, 88vw); }
+  .hero-claim h1 { font-size: clamp(1.4rem, 6.4vw, 2rem); }
+  .hero-claim p { font-size: var(--text-xs); }
+  .bottom-footer .footer-col:nth-child(2),
+  .bottom-footer .footer-col:nth-child(3) { display: none; }
+  .bottom-ui-container { grid-template-columns: 1fr; gap: 0.6rem; text-align: left; }
+  .slide-title-container { text-align: left; }
+  .stm-content { grid-template-columns: 1fr; }
+  .stm-col--right { align-items: flex-start; text-align: left; }
+  .pg-gallery { grid-template-columns: 1fr; }
+  .pg-item { grid-column: 1 / -1 !important; margin-top: 0 !important; }
+  .footer-links { justify-content: flex-start; }
+  .scroll-down { display: none; }
+}

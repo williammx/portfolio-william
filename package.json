@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-william",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfólio William — Cloudflare Worker + Static Assets + D1 + R2",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "watch": "node scripts/watch-deploy.mjs",
+    "frames": "node scripts/video-frames.mjs",
+    "cf:login": "wrangler login",
+    "cf:whoami": "wrangler whoami",
+    "cf:d1:create": "wrangler d1 create portfolio-db",
+    "cf:d1:schema": "wrangler d1 execute portfolio-db --remote --file=./schema.sql",
+    "cf:d1:schema:local": "wrangler d1 execute portfolio-db --local --file=./schema.sql",
+    "cf:d1:seed": "wrangler d1 execute portfolio-db --remote --file=./seed.sql",
+    "cf:d1:seed:local": "wrangler d1 execute portfolio-db --local --file=./seed.sql",
+    "cf:r2:create": "wrangler r2 bucket create portfolio-media",
+    "cf:tail": "wrangler tail",
+    "cf:d1:projects": "wrangler d1 execute portfolio-db --remote --file=./projects.sql",
+    "cf:d1:projects:local": "wrangler d1 execute portfolio-db --local --file=./projects.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.122.0"
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Projeto · William</title>
+<meta name="description" content="Case de branding, motion ou web.">
+<meta name="theme-color" content="#030303">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Zalando+Sans+SemiExpanded:wght@400;600;700&family=Bitcount+Grid+Single&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/case.css">
+</head>
+<body>
+
+<div class="loader">
+  <div class="loader__inner">
+    <div class="loader__mark"></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">000</div>
+    <div class="loader__status">projeto</div>
+  </div>
+</div>
+
+<div class="page-transition-shell">
+  <div class="page-transition-curtain"></div>
+  <div class="page-transition-frame"></div>
+</div>
+
+<canvas id="film-grain-canvas" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-label" aria-hidden="true"></div>
+
+<header class="nav-bar">
+  <a class="nav-bar__logo" href="index.html" data-site="brand">WILLIAM</a>
+  <div class="nav-bar__center"><a href="work.html">← Todos os projetos</a></div>
+  <div class="nav-bar__right">
+    <nav class="nav-links"></nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu-overlay" aria-hidden="true">
+  <nav class="menu-nav"></nav>
+  <div class="menu-foot">
+    <div class="menu-foot__col"><span>Contato</span><a data-site-href="email" href="#" data-site="email">—</a></div>
+    <div class="menu-foot__col"><span>Telefone</span><a data-site-href="phone" href="#" data-site="phone">—</a></div>
+    <div class="menu-foot__col"><span>Base</span><div data-site="city">—</div></div>
+    <div class="menu-foot__col js-socials" style="display:flex;gap:1rem;align-items:flex-end"></div>
+  </div>
+</div>
+
+<main>
+  <article class="case">
+    <div class="case__empty"><div class="sec-label">carregando…</div></div>
+  </article>
+
+  <section class="cta">
+    <h2 class="cta__title"></h2>
+    <p class="cta__sub"></p>
+    <div><a class="cta__mail" href="#"></a></div>
+    <div><a class="cta__btn" href="contact.html"><span></span></a></div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer">
+  <nav class="footer-nav"></nav>
+  <div class="footer-top">
+    <div class="footer-info-bar">
+      <span data-site="role">—</span><span data-site="city">—</span>
+      <span>Est. <span data-site="year">2026</span></span>
+    </div>
+    <div class="footer-main-content">
+      <div class="footer-blurb" data-site="footerBlurb">—</div>
+      <div class="footer-right-panel">
+        <a data-site-href="email" href="#" data-site="email">—</a>
+        <a data-site-href="phone" href="#" data-site="phone">—</a>
+        <div class="footer-socials js-socials"></div>
+      </div>
+    </div>
+    <div class="footer-copyright-bridge">
+      <span>© <span data-site="year">2026</span> <span data-site="brandFull">—</span></span>
+      <span>Todos os direitos reservados</span>
+    </div>
+  </div>
+  <div id="footer-parallax-section" class="footer-parallax-section">
+    <div id="footer-parallax-bg" class="footer-parallax-bg"></div>
+    <div class="footer-parallax-copy">
+      <div class="footer-wordmark" data-site="brand">WILLIAM</div>
+      <p data-site="tagline">—</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/cms.js"></script>
+<script src="js/core.js"></script>
+<script src="js/sections.js"></script>
+<script src="js/project.js"></script>
+</body>
+</html>

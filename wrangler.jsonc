@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "portfolio-william",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-13",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Site estático servido a partir de /public
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+
+  // Banco de dados dos projetos (CMS)
+  // O database_id é preenchido pelo comando `npm run cf:d1:create`
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "portfolio-db",
+      "database_id": "PREENCHER_APOS_CRIAR"
+    }
+  ],
+
+  // Bucket das imagens enviadas pelo CMS
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "portfolio-media"
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+}

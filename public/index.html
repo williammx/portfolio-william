@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>William · Portfólio — Branding × Motion × Web</title>
+<meta name="description" content="Motion designer e designer web no Rio de Janeiro. Branding, identidade visual, direção criativa, landing pages e social media.">
+<meta name="theme-color" content="#030303">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="./index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="William · Portfólio">
+<meta property="og:description" content="Identidade de marca, interfaces, motion e experiências digitais interativas.">
+<meta property="og:image" content="images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Zalando+Sans+SemiExpanded:wght@400;600;700&family=Bitcount+Grid+Single&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/video-scroll.css">
+</head>
+
+<body>
+
+<!-- ====== LOADER ====== -->
+<div class="loader">
+  <video class="loader__video" autoplay muted loop playsinline></video>
+  <div class="loader__inner">
+    <div class="loader__mark"></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">000</div>
+    <div class="loader__status">carregando experiência</div>
+  </div>
+</div>
+
+<!-- ====== TRANSIÇÃO DE PÁGINA ====== -->
+<div class="page-transition-shell">
+  <div class="page-transition-curtain"></div>
+  <div class="page-transition-frame"></div>
+</div>
+
+<!-- ====== OVERLAYS GLOBAIS ====== -->
+<canvas id="film-grain-canvas" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-label" aria-hidden="true"></div>
+
+<!-- ====== NAV ====== -->
+<header class="nav-bar">
+  <a class="nav-bar__logo" href="index.html" data-site="brand">WILLIAM</a>
+  <div class="nav-bar__center">Digital / Motion / Interface — <span data-site="year">2026</span></div>
+  <div class="nav-bar__right">
+    <nav class="nav-links"></nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu-overlay" aria-hidden="true">
+  <nav class="menu-nav"></nav>
+  <div class="menu-foot">
+    <div class="menu-foot__col"><span>Contato</span><a data-site-href="email" href="#" data-site="email">—</a></div>
+    <div class="menu-foot__col"><span>Telefone</span><a data-site-href="phone" href="#" data-site="phone">—</a></div>
+    <div class="menu-foot__col"><span>Base</span><div data-site="city">—</div></div>
+    <div class="menu-foot__col js-socials" style="display:flex;gap:1rem;align-items:flex-end"></div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ 1. HERO STICKY ============ -->
+  <div class="scroll-track">
+    <div class="sticky-container">
+      <section class="hero-section">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <video class="hero-video" autoplay muted loop playsinline preload="auto"></video>
+        <div class="hero-vignette" aria-hidden="true"></div>
+        <canvas class="hero-grid" aria-hidden="true"></canvas>
+
+        <div class="hero-claim">
+          <h1>Estratégia, design<br>e desenvolvimento</h1>
+          <p>Rápido, enxuto e com preço que faz sentido.</p>
+        </div>
+
+        <div class="overlay-ui">
+          <div class="overlay-top">
+            <div class="top-header">
+              <div class="huge-text"><div>DESIGN</div></div>
+              <div class="small-tag">( direção de marca )</div>
+              <div class="huge-text"><div>DIGITAL</div></div>
+            </div>
+            <div class="grid-4" style="margin-top:2rem">
+              <div><ul class="services-list js-services-pt"></ul></div>
+              <div></div>
+              <div></div>
+              <div class="col-right"><ul class="services-list services-list_en bordered js-services-en"></ul></div>
+            </div>
+          </div>
+
+          <div class="overlay-bottom">
+            <div class="grid-4 hero-quick-links-row">
+              <div class="hero-quick-links" style="grid-column:1 / -1">
+                <a href="work.html">Projetos</a>
+                <a href="about.html">Sobre</a>
+                <a href="contact.html">Contato</a>
+              </div>
+            </div>
+            <div class="grid-4 bottom-footer border-top-line">
+              <div class="footer-col"><div data-site="brandFull">—</div></div>
+              <div class="footer-col"><div data-site="city">—</div></div>
+              <div class="footer-col"><div data-site="role">—</div></div>
+              <div class="footer-col col-right footer-links js-socials"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-down"><i></i><span>rolar</span></div>
+
+        <div class="bottom-ui-container">
+          <div class="slide-section" data-site="heroSeries">SÉRIE COSMIC</div>
+          <div class="slide-counter">
+            <div class="counter-nav prev-slide" role="button" tabindex="0">&#10218;</div>
+            <div class="counter-display">
+              <span class="current-slide">01</span>
+              <span class="counter-divider">//</span>
+              <span class="total-slides">05</span>
+            </div>
+            <div class="counter-nav next-slide" role="button" tabindex="0">&#10219;</div>
+          </div>
+          <div class="slide-title-container"><div class="slide-title">—</div></div>
+        </div>
+      </section>
+
+      <div class="dark-wrapper-mask"><div class="dark-wrapper"></div></div>
+    </div>
+  </div>
+
+  <!-- ============ 2. VÍDEO EM SCROLL + CAPACIDADES NAS LATERAIS ============ -->
+  <section class="vscroll" data-frames="frames">
+    <div class="vscroll__sticky">
+      <canvas class="vscroll__canvas" aria-hidden="true"></canvas>
+      <div class="vscroll__scrim" aria-hidden="true"></div>
+      <!-- frase fixa no centro, trocando conforme o scroll -->
+      <div class="vscroll__mid"></div>
+      <div class="vscroll__status">carregando a sequência…</div>
+    </div>
+
+    <!-- as palavras sobem pelas laterais enquanto o vídeo roda atrás -->
+    <div class="vscroll__words">
+      <div class="stm-col stm-col--left"></div>
+      <div class="stm-col stm-col--right"></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. MANIFESTO (revelação palavra a palavra) ============ -->
+  <section class="manifesto">
+    <div class="manifesto__sticky">
+      <div class="manifesto__label"></div>
+      <p class="manifesto__text"></p>
+    </div>
+  </section>
+
+  <!-- ============ 3b. SEGUNDO VÍDEO EM SCROLL ============
+       Some sozinho enquanto não existirem frames em /frames2.
+       Gerar com:  npm run frames -- public/media/segundo.mp4 --out frames2 -->
+  <section class="vscroll vscroll--solo" data-frames="frames2">
+    <div class="vscroll__sticky">
+      <canvas class="vscroll__canvas" aria-hidden="true"></canvas>
+      <div class="vscroll__scrim" aria-hidden="true"></div>
+      <div class="vscroll__status"></div>
+    </div>
+  </section>
+
+  <!-- ============ 4. GALERIA EM ANEL 3D ============ -->
+  <section id="core-capabilities" class="ccap-section">
+    <div class="ring-gallery-sticky">
+      <div id="sketch"></div>
+      <div class="ccap-side-fade ccap-side-fade-left"></div>
+      <div class="ccap-side-fade ccap-side-fade-right"></div>
+      <div class="hero-dom">
+        <div>
+          <div class="giant-title reveal-line"><span data-site="ringTitle">—</span></div>
+          <div class="sub-title" data-site="ringSub">—</div>
+        </div>
+        <div class="service-tags">
+          <span>Web Design</span><span>UI / UX</span><span>Motion</span><span>Branding</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. MARQUEE ============ -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Branding</span><span>·</span><span>Identidade Visual</span><span>·</span>
+      <span>Direção Criativa</span><span>·</span><span>Motion Design</span><span>·</span>
+      <span>Landing Pages</span><span>·</span><span>Social Media</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ============ 6. SERVIÇOS EM ACORDEÃO ============ -->
+  <section class="svc">
+    <div class="sec-head">
+      <div class="sec-label"></div>
+      <h2 class="sec-title"></h2>
+    </div>
+    <div class="svc__list"></div>
+  </section>
+
+  <!-- ============ 7. NÚMEROS (odômetro) ============ -->
+  <div class="sec-head">
+    <div class="sec-label" data-site="statsLabel">—</div>
+    <h2 class="sec-title" data-site="statsIntro">—</h2>
+  </div>
+  <section class="odo"></section>
+
+  <!-- ============ 8. PROJETOS ============ -->
+  <section id="s3-gallery" class="s3-gallery-section">
+    <div class="gallery-header">
+      <div class="gallery-header-video">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <video autoplay muted loop playsinline></video>
+      </div>
+      <h2 class="gallery-header-label" data-site="worksLabel">—</h2>
+      <div class="gallery-header-title">
+        <span class="gh-line"><span>Ponto de</span></span>
+        <span class="gh-line"><span>liberação da</span></span>
+        <span class="gh-line"><span>energia visual</span></span>
+      </div>
+      <p data-site="worksIntro">—</p>
+    </div>
+    <div class="pg-gallery"></div>
+  </section>
+
+  <!-- ============ 9. PROCESSO ============ -->
+  <section class="proc">
+    <div class="proc__grid">
+      <div class="proc__aside">
+        <div class="sec-label"></div>
+        <h2 class="sec-title"></h2>
+        <div class="proc__rail"><i></i></div>
+      </div>
+      <div class="proc__steps"></div>
+    </div>
+  </section>
+
+  <!-- ============ 10. CTA FINAL ============ -->
+  <section class="cta">
+    <h2 class="cta__title"></h2>
+    <p class="cta__sub"></p>
+    <div><a class="cta__mail" href="#"></a></div>
+    <div><a class="cta__btn" href="contact.html"><span></span></a></div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="site-footer" class="site-footer">
+  <nav class="footer-nav"></nav>
+  <div class="footer-top">
+    <div class="footer-info-bar">
+      <span data-site="role">—</span>
+      <span data-site="city">—</span>
+      <span>Est. <span data-site="year">2026</span></span>
+    </div>
+    <div class="footer-main-content">
+      <div class="footer-blurb" data-site="footerBlurb">—</div>
+      <div class="footer-right-panel">
+        <a data-site-href="email" href="#" data-site="email">—</a>
+        <a data-site-href="phone" href="#" data-site="phone">—</a>
+        <div class="footer-socials js-socials"></div>
+      </div>
+    </div>
+    <div class="footer-copyright-bridge">
+      <span>© <span data-site="year">2026</span> <span data-site="brandFull">—</span></span>
+      <span>Todos os direitos reservados</span>
+    </div>
+  </div>
+  <div id="footer-parallax-section" class="footer-parallax-section">
+    <div id="footer-parallax-bg" class="footer-parallax-bg"></div>
+    <div class="footer-parallax-copy">
+      <div class="footer-wordmark" data-site="brand">WILLIAM</div>
+      <p data-site="tagline">—</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/cms.js"></script>
+<script>
+  // mídia e listas vindas do config
+  document.addEventListener('DOMContentLoaded', () => {
+    const S = window.SITE;
+    // vídeo definido no config → usa; vazio → remove e fica só o fundo animado em CSS
+    const set = (sel, src) => {
+      const v = document.querySelector(sel);
+      if (!v) return;
+      if (src) {
+        v.src = src;
+        // com vídeo real, o fundo animado em CSS sai de cena
+        const bg = v.parentElement && v.parentElement.querySelector('.hero-bg');
+        if (bg) bg.remove();
+        if (sel === '.hero-video' && S.heroPoster) v.poster = S.heroPoster;
+        // alguns navegadores bloqueiam autoplay: tenta de novo no primeiro toque
+        const go = () => v.play().catch(() => {});
+        go();
+        addEventListener('pointerdown', go, { once: true });
+      } else {
+        v.remove();
+      }
+    };
+    set('.loader__video', S.loaderVideo);
+    set('.hero-video', S.heroVideo);
+    set('.gallery-header-video video', S.galleryVideo);
+    const pt = document.querySelector('.js-services-pt');
+    const en = document.querySelector('.js-services-en');
+    if (pt) pt.innerHTML = S.servicesPt.map(s => `<li>${s}</li>`).join('');
+    if (en) en.innerHTML = S.servicesEn.map(s => `<li>${s}</li>`).join('');
+    document.querySelectorAll('.gallery-header-title .gh-line > span')
+      .forEach((el, i) => { if (S.worksTitle[i]) el.textContent = S.worksTitle[i]; });
+    const tags = document.querySelector('.service-tags');
+    if (tags) tags.innerHTML = S.ringTags.map(t => `<span>${t}</span>`).join('');
+  });
+</script>
+<script src="js/core.js"></script>
+<script src="js/home.js"></script>
+<script src="js/sections.js"></script>
+<script src="js/video-scroll.js"></script>
+</body>
+</html>

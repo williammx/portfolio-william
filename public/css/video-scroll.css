@@ -1,0 +1,112 @@
+/* ============================================================
+   VÍDEO EM SCROLL — canvas pinado com sequência de frames
+   ============================================================ */
+
+.vscroll {
+  position: relative;
+  /* a altura define quanto scroll a animação consome e também o espaço
+     por onde as palavras laterais sobem */
+  height: 460vh;
+  background: #000;
+}
+
+.vscroll__sticky {
+  position: sticky; top: 0;
+  height: 100vh; overflow: hidden;
+  display: grid; place-items: center;
+}
+
+/* a opacidade passa a ser controlada pelo scroll assim que os frames
+   carregam (ver video-scroll.js), então aqui só o estado inicial */
+.vscroll__canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block; opacity: 0;
+}
+.vscroll.is-ready .vscroll__canvas { opacity: 1; }
+
+/* escurece as bordas para o texto ficar legível */
+.vscroll__sticky::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.55), transparent 26%, transparent 68%, rgba(0,0,0,.75)),
+    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.45));
+}
+
+/* faixas escuras nas laterais, para as palavras terem base sobre o vídeo */
+.vscroll__scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.72) 0%, transparent 34%),
+    linear-gradient(to left,  rgba(0,0,0,0.72) 0%, transparent 34%);
+}
+
+/* ---- palavras subindo pelas laterais ---- */
+.vscroll__words {
+  position: absolute; inset: 0; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 8vw, 140px);
+  padding: 45vh var(--gutter, 24px);
+  pointer-events: none;
+}
+.vscroll__words .stm-col { display: flex; flex-direction: column; }
+.vscroll__words .stm-col--left  { align-items: flex-start; text-align: left; }
+.vscroll__words .stm-col--right { align-items: flex-end; text-align: right; }
+
+/* ---- frase fixa no centro, trocando com o scroll ---- */
+.vscroll__mid {
+  position: absolute; inset: 0; z-index: 3;
+  display: grid; place-items: center;
+  /* um pouco abaixo do centro */
+  padding-top: clamp(90px, 16vh, 200px);
+  pointer-events: none;
+}
+.vscroll__cap {
+  grid-area: 1 / 1;
+  width: min(760px, 84vw); text-align: center;
+  font-family: var(--font-family-display, sans-serif);
+  font-size: clamp(1.7rem, 4.6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight, -0.04em);
+  text-transform: uppercase;
+  opacity: 0;
+}
+.vscroll__cap small {
+  display: block; margin-top: 0.9rem;
+  font-family: var(--font-family-body, sans-serif);
+  font-size: var(--text-sm, 0.9rem);
+  letter-spacing: var(--tracking-copy, 0.03em);
+  text-transform: none;
+  color: var(--color-dim, rgba(255,255,255,.6));
+}
+
+.vscroll__status {
+  position: absolute; inset: 0; z-index: 2;
+  display: grid; place-items: center; text-align: center;
+  padding: 0 var(--gutter, 24px);
+  font-size: var(--text-2xs, 0.7rem);
+  letter-spacing: var(--tracking-caps, 0.18em);
+  text-transform: uppercase;
+  color: var(--color-faint, rgba(255,255,255,.3));
+}
+.vscroll.is-ready .vscroll__status { display: none; }
+
+/* seção só de vídeo, sem as palavras */
+.vscroll--solo { height: 320vh; }
+
+/* sem frames: a seção com palavras continua (só perde o vídeo atrás),
+   a seção só de vídeo desaparece por completo */
+.vscroll.is-empty .vscroll__scrim { opacity: 0.4; }
+.vscroll--solo.is-empty { display: none; }
+
+@media (max-width: 720px) {
+  .vscroll { height: 360vh; }
+  .vscroll--solo { height: 220vh; }
+  .vscroll__words { grid-template-columns: 1fr; padding: 40vh var(--gutter, 20px); }
+  .vscroll__words .stm-col--right { align-items: flex-start; text-align: left; }
+  .vscroll__words .stm-col--center { align-items: flex-start; text-align: left; padding-top: 0; }
+  .vscroll__scrim { background: rgba(0, 0, 0, 0.55); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vscroll { height: 200vh; }
+}

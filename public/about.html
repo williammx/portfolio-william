@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sobre · William</title>
+<meta name="description" content="Motion designer e designer web no Rio de Janeiro. Branding, identidade visual, direção criativa, landing pages e social media.">
+<meta name="theme-color" content="#030303">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Zalando+Sans+SemiExpanded:wght@400;600;700&family=Bitcount+Grid+Single&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<div class="loader">
+  <div class="loader__inner">
+    <div class="loader__mark"></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">000</div>
+    <div class="loader__status">sobre</div>
+  </div>
+</div>
+
+<div class="page-transition-shell">
+  <div class="page-transition-curtain"></div>
+  <div class="page-transition-frame"></div>
+</div>
+
+<canvas id="film-grain-canvas" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-label" aria-hidden="true"></div>
+
+<header class="nav-bar">
+  <a class="nav-bar__logo" href="index.html" data-site="brand">WILLIAM</a>
+  <div class="nav-bar__center">Perfil — <span data-site="year">2026</span></div>
+  <div class="nav-bar__right">
+    <nav class="nav-links"></nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu-overlay" aria-hidden="true">
+  <nav class="menu-nav"></nav>
+  <div class="menu-foot">
+    <div class="menu-foot__col"><span>Contato</span><a data-site-href="email" href="#" data-site="email">—</a></div>
+    <div class="menu-foot__col"><span>Telefone</span><a data-site-href="phone" href="#" data-site="phone">—</a></div>
+    <div class="menu-foot__col"><span>Base</span><div data-site="city">—</div></div>
+    <div class="menu-foot__col js-socials" style="display:flex;gap:1rem;align-items:flex-end"></div>
+  </div>
+</div>
+
+<main>
+  <section class="page-head">
+    <div class="page-head__label">( quem eu sou )</div>
+    <h1 class="page-head__title">Foco no<br>essencial</h1>
+    <p class="page-head__intro">
+      Toda experiência digital forte nasce de um núcleo preciso. É esse ponto que eu procuro
+      em cada projeto — antes da cor, antes da animação, antes do código.
+    </p>
+    <div class="page-head__meta">
+      <span data-site="role">—</span><span data-site="city">—</span><span>Freelancer &amp; parcerias</span>
+    </div>
+  </section>
+
+  <section class="about-grid">
+    <div class="about-portrait"><img src="images/about.jpg" alt="Retrato"></div>
+    <div class="about-copy">
+      <p>
+        Trabalho na interseção entre branding, motion design e web. Não entrego layout bonito
+        que não converte, nem animação bacana que não comunica.
+      </p>
+      <p>
+        Meu processo começa por entender o negócio: quem compra, o que trava a decisão, qual é a
+        promessa central. Só depois vem o sistema visual — tipografia, grid, movimento — construído
+        para carregar essa promessa em cada tela.
+      </p>
+      <p>
+        Movimento entra como linguagem, não como enfeite: motion para campanha, social media e
+        interface. E, quando o projeto é web, escrevo o front-end à mão — HTML semântico, CSS
+        moderno e animação com GSAP. Leve, acessível e que ranqueia.
+      </p>
+      <p>
+        Se você está reposicionando uma marca, lançando um produto ou refazendo um site que já não
+        representa mais o que a empresa virou, provavelmente temos assunto.
+      </p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skill-block" data-fade>
+      <h3>Estratégia</h3>
+      <ul>
+        <li>Posicionamento de marca</li><li>Arquitetura de informação</li>
+        <li>Pesquisa e benchmark</li><li>Naming e territórios verbais</li>
+      </ul>
+    </div>
+    <div class="skill-block" data-fade>
+      <h3>Branding</h3>
+      <ul>
+        <li>Identidade visual</li><li>Design system</li>
+        <li>Manual de marca</li><li>Aplicações e papelaria</li>
+      </ul>
+    </div>
+    <div class="skill-block" data-fade>
+      <h3>Motion</h3>
+      <ul>
+        <li>Motion design</li><li>Animação 2D</li>
+        <li>Vinhetas e aberturas</li><li>Microinterações</li>
+      </ul>
+    </div>
+    <div class="skill-block" data-fade>
+      <h3>Social Media</h3>
+      <ul>
+        <li>Direção de conteúdo</li><li>Feed e stories</li>
+        <li>Reels e vídeo curto</li><li>Templates editáveis</li>
+      </ul>
+    </div>
+    <div class="skill-block" data-fade>
+      <h3>Web</h3>
+      <ul>
+        <li>Landing pages</li><li>Design de interface</li>
+        <li>HTML · CSS · JavaScript</li><li>GSAP · Three.js · SEO</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="timeline__row" data-fade>
+      <div class="timeline__year">2026</div>
+      <div>
+        <div class="timeline__role">Estúdio próprio</div>
+        <div class="timeline__desc">Projetos de identidade e web para marcas que precisam de um salto de percepção.</div>
+      </div>
+    </div>
+    <div class="timeline__row" data-fade>
+      <div class="timeline__year">2022—2025</div>
+      <div>
+        <div class="timeline__role">Direção de arte digital</div>
+        <div class="timeline__desc">Campanhas, sites institucionais e sistemas visuais para clientes de médio e grande porte.</div>
+      </div>
+    </div>
+    <div class="timeline__row" data-fade>
+      <div class="timeline__year">2018—2022</div>
+      <div>
+        <div class="timeline__role">Designer &amp; front-end</div>
+        <div class="timeline__desc">Interfaces de produto, e-commerce e landing pages orientadas a conversão.</div>
+      </div>
+    </div>
+    <div class="timeline__row" data-fade>
+      <div class="timeline__year">2012—2018</div>
+      <div>
+        <div class="timeline__role">Primeiros anos</div>
+        <div class="timeline__desc">Design gráfico, editorial e a descoberta do código como matéria-prima criativa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- por que trabalhar comigo -->
+  <section class="ben">
+    <div class="ben__label sec-label"></div>
+    <h2 class="ben__title"></h2>
+    <p class="ben__intro"></p>
+    <div class="ben__list"></div>
+  </section>
+
+  <!-- clientes -->
+  <section class="cli">
+    <div class="sec-head" style="padding-top:0">
+      <div class="sec-label" data-site="clientsLabel">—</div>
+    </div>
+    <div class="cli__row"><div class="cli__track"></div></div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta">
+    <h2 class="cta__title"></h2>
+    <p class="cta__sub"></p>
+    <div><a class="cta__mail" href="#"></a></div>
+    <div><a class="cta__btn" href="contact.html"><span></span></a></div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Branding</span><span>·</span><span>Motion</span><span>·</span>
+      <span>Social Media</span><span>·</span><span>Web</span><span>·</span>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer" class="site-footer">
+  <nav class="footer-nav"></nav>
+  <div class="footer-top">
+    <div class="footer-info-bar">
+      <span data-site="role">—</span><span data-site="city">—</span>
+      <span>Est. <span data-site="year">2026</span></span>
+    </div>
+    <div class="footer-main-content">
+      <div class="footer-blurb" data-site="footerBlurb">—</div>
+      <div class="footer-right-panel">
+        <a data-site-href="email" href="#" data-site="email">—</a>
+        <a data-site-href="phone" href="#" data-site="phone">—</a>
+        <div class="footer-socials js-socials"></div>
+      </div>
+    </div>
+    <div class="footer-copyright-bridge">
+      <span>© <span data-site="year">2026</span> <span data-site="brandFull">—</span></span>
+      <span>Todos os direitos reservados</span>
+    </div>
+  </div>
+  <div id="footer-parallax-section" class="footer-parallax-section">
+    <div id="footer-parallax-bg" class="footer-parallax-bg"></div>
+    <div class="footer-parallax-copy">
+      <div class="footer-wordmark" data-site="brand">WILLIAM</div>
+      <p data-site="tagline">—</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/cms.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/sections.js"></script>
+</body>
+</html>

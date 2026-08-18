@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contato · William</title>
+<meta name="description" content="Vamos conversar sobre seu projeto de marca, site ou interface.">
+<meta name="theme-color" content="#030303">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Zalando+Sans+SemiExpanded:wght@400;600;700&family=Bitcount+Grid+Single&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<div class="loader">
+  <div class="loader__inner">
+    <div class="loader__mark"></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">000</div>
+    <div class="loader__status">contato</div>
+  </div>
+</div>
+
+<div class="page-transition-shell">
+  <div class="page-transition-curtain"></div>
+  <div class="page-transition-frame"></div>
+</div>
+
+<canvas id="film-grain-canvas" aria-hidden="true"></canvas>
+<div id="scroll-progress"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-label" aria-hidden="true"></div>
+
+<header class="nav-bar">
+  <a class="nav-bar__logo" href="index.html" data-site="brand">WILLIAM</a>
+  <div class="nav-bar__center">Vamos conversar</div>
+  <div class="nav-bar__right">
+    <nav class="nav-links"></nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="menu-overlay" aria-hidden="true">
+  <nav class="menu-nav"></nav>
+  <div class="menu-foot">
+    <div class="menu-foot__col"><span>Contato</span><a data-site-href="email" href="#" data-site="email">—</a></div>
+    <div class="menu-foot__col"><span>Telefone</span><a data-site-href="phone" href="#" data-site="phone">—</a></div>
+    <div class="menu-foot__col"><span>Base</span><div data-site="city">—</div></div>
+    <div class="menu-foot__col js-socials" style="display:flex;gap:1rem;align-items:flex-end"></div>
+  </div>
+</div>
+
+<main>
+  <section class="page-head">
+    <div class="page-head__label">( vamos começar )</div>
+    <h1 class="page-head__title">Conte o<br>seu projeto</h1>
+    <p class="page-head__intro">
+      Respondo em até 1 dia útil. Se puder, já mande prazo, escopo e uma referência
+      do que você gosta — a conversa anda muito mais rápido.
+    </p>
+    <div class="page-head__meta">
+      <span>Branding</span><span>Motion</span><span>Landing Pages</span><span>Social Media</span>
+    </div>
+  </section>
+
+  <section class="contact-grid">
+    <div>
+      <div class="contact-big">
+        <a data-site-href="email" href="#" data-site="email">—</a>
+      </div>
+      <div class="contact-meta">
+        <div><span>Telefone / WhatsApp</span><a data-site-href="phone" href="#" data-site="phone">—</a></div>
+        <div><span>Base</span><div data-site="city">—</div></div>
+        <div><span>Redes</span><div class="footer-socials js-socials"></div></div>
+        <div><span>Disponibilidade</span><div>Aceitando projetos para o próximo trimestre</div></div>
+      </div>
+    </div>
+
+    <form class="form" novalidate>
+      <div class="field">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="assunto">Tipo de projeto</label>
+        <select id="assunto" name="assunto">
+          <option>Branding / Identidade visual</option>
+          <option>Direção criativa</option>
+          <option>Motion design / Animação</option>
+          <option>Landing page</option>
+          <option>Social media</option>
+          <option>Site institucional</option>
+          <option>Design de interface</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" required></textarea>
+      </div>
+      <button class="btn" type="submit"><span>Enviar mensagem</span></button>
+      <div class="form-note">O envio abre seu app de e-mail com a mensagem pronta.</div>
+    </form>
+  </section>
+
+  <!-- perguntas frequentes -->
+  <section class="faq">
+    <div class="sec-label"></div>
+    <h2 class="sec-title">Perguntas frequentes</h2>
+    <div class="faq__list"></div>
+  </section>
+
+  <div class="marquee" data-dir="right">
+    <div class="marquee__track">
+      <span>Disponível para projetos</span><span>·</span>
+      <span>Resposta em 1 dia útil</span><span>·</span>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer" class="site-footer">
+  <nav class="footer-nav"></nav>
+  <div class="footer-top">
+    <div class="footer-info-bar">
+      <span data-site="role">—</span><span data-site="city">—</span>
+      <span>Est. <span data-site="year">2026</span></span>
+    </div>
+    <div class="footer-main-content">
+      <div class="footer-blurb" data-site="footerBlurb">—</div>
+      <div class="footer-right-panel">
+        <a data-site-href="email" href="#" data-site="email">—</a>
+        <a data-site-href="phone" href="#" data-site="phone">—</a>
+        <div class="footer-socials js-socials"></div>
+      </div>
+    </div>
+    <div class="footer-copyright-bridge">
+      <span>© <span data-site="year">2026</span> <span data-site="brandFull">—</span></span>
+      <span>Todos os direitos reservados</span>
+    </div>
+  </div>
+  <div id="footer-parallax-section" class="footer-parallax-section">
+    <div id="footer-parallax-bg" class="footer-parallax-bg"></div>
+    <div class="footer-parallax-copy">
+      <div class="footer-wordmark" data-site="brand">WILLIAM</div>
+      <p data-site="tagline">—</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/cms.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/sections.js"></script>
+</body>
+</html>

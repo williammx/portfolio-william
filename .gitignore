@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.wrangler-dev.log
+_qa/
+public/frames/
+.dev.vars
+.DS_Store
+
+public/admin/
+public/media/scroll-source.mp4
