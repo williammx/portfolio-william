@@ -8,8 +8,8 @@ window.SITE = {
   /* ---------- identidade ---------- */
   brand: "WILLIAM",              // marca curta, aparece na nav e no loader
   brandFull: "William",          // nome por extenso (ex.: "William Campelo")
-  role: "Motion Designer & Designer Web",
-  tagline: "Estratégia, design e desenvolvimento.",
+  role: "Motion Designer e Designer Web",
+  tagline: "Marca, movimento e conversão.",
   year: "2026",
   city: "Rio de Janeiro, RJ",
 
@@ -40,21 +40,21 @@ window.SITE = {
   /* ---------- frases que se alternam no centro do hero ----------
      Mesma tipografia do resto do site. Use <br> para quebrar linha. */
   heroPhrases: [
-    "Estratégia, design<br>e desenvolvimento",
-    "Marca que fica<br>na memória",
-    "Movimento que<br>vende",
-    "Feito à mão,<br>no código"
+    "Sua marca<br>merece ser notada",
+    "Design que<br>puxa cliente",
+    "Movimento<br>que convence",
+    "Do conceito<br>ao código"
   ],
   heroPhraseHold: 4200,   // ms que cada frase fica na tela
 
   /* ---------- carrossel do hero ---------- */
-  heroSeries: "SÉRIE COSMIC",
+  heroSeries: "EM DESTAQUE",
   heroSlides: [
-    "Harmonia Cósmica",
-    "Camada Fluida",
-    "Ruído Estático",
-    "Deriva Orbital",
-    "Núcleo Profundo"
+    "Identidade de marca",
+    "Motion para campanha",
+    "Página que converte",
+    "Conteúdo para redes",
+    "Interface de produto"
   ],
 
   /* ---------- capacidades (faixa STM) ---------- */
@@ -70,21 +70,21 @@ window.SITE = {
   /* frases fixas no centro do vídeo, trocando conforme o scroll.
      'sub' é opcional e aparece menor embaixo. */
   vscrollCaptions: [
-    { t: "Conceito", sub: "Antes do pixel, a ideia que sustenta tudo." },
-    { t: "Ritmo",    sub: "Pausa, respiro e corte — movimento é edição." },
-    { t: "Acabamento", sub: "O que separa bonito de memorável." },
-    { t: "Impacto",  sub: "Design que o cliente lembra depois de fechar a aba." }
+    { t: "Conceito",   sub: "Antes de abrir qualquer arquivo, a ideia que sustenta tudo." },
+    { t: "Ritmo",      sub: "Movimento é edição. Pausa, respiro e corte no tempo certo." },
+    { t: "Acabamento", sub: "É no detalhe que bonito vira memorável." },
+    { t: "Impacto",    sub: "O cliente fecha a aba e continua lembrando da sua marca." }
   ],
 
   /* ---------- tags do anel 3D ---------- */
-  ringTitle: "Redefinindo o pensamento visual da marca",
-  ringSub: "Protegendo o núcleo estético, definindo o ponto digital",
+  ringTitle: "Marcas que param o dedo e ficam na cabeça",
+  ringSub: "Cada projeto começa por uma pergunta simples: o que precisa mudar de verdade?",
   ringTags: ["Branding", "Motion", "Landing Pages", "Social Media", "UI / UX"],
 
   /* ---------- projetos ---------- */
-  worksLabel: "ARQUIVO DE TRABALHOS SELECIONADOS",
-  worksTitle: ["Ponto de", "liberação da", "energia visual"],
-  worksIntro: "Uma seleção de projetos onde estratégia, estética e código se encontram.",
+  worksLabel: "PROJETOS SELECIONADOS",
+  worksTitle: ["Marcas", "que saíram", "do lugar"],
+  worksIntro: "Uma seleção de trabalhos em que estratégia, estética e código puxam para o mesmo lado.",
   works: [
     { title: "Scope", tag: "Branding / Inteligência Geoespacial", url: "projeto.html?p=scope", slug: "scope", img: "images/work/scope/01.webp" },
     { title: "Fiveasy", tag: "Branding / Produto Digital", url: "projeto.html?p=fiveasy", slug: "fiveasy", img: "images/work/fiveasy/01.webp" },
@@ -131,42 +131,42 @@ window.SITE = {
   /* ---------- números (odômetro) ----------
      'num' aceita dígitos + sufixo/prefixo. Ex.: "500+", "1.5K+", "90%" */
   statsLabel: "Números",
-  statsIntro: "Um retrato da experiência e do impacto.",
+  statsIntro: "O que a prática construiu até aqui.",
   stats: [
-    { num: "14",   label: "Anos de domínio visual" },
+    { num: "14",   label: "Anos vivendo de design" },
     { num: "400+", label: "Projetos entregues" },
-    { num: "90%",  label: "Clientes que voltam para um segundo projeto" },
-    { num: "100%", label: "Feito à mão, no código" }
+    { num: "90%",  label: "Clientes que voltam para o segundo projeto" },
+    { num: "100%", label: "Front-end escrito à mão" }
   ],
 
   /* ---------- manifesto (revelação palavra a palavra) ---------- */
   manifestoLabel: "( manifesto )",
   manifesto:
     "Marca não é logo. É a soma de tudo que a pessoa sente antes de decidir. " +
-    "Meu trabalho é controlar essa soma — no design, no movimento e no código.",
+    "Meu trabalho é controlar essa soma no design, no movimento e no código.",
 
   /* ---------- serviços em acordeão ---------- */
   servicesLabel: "O que eu faço",
   servicesTitle: "Disciplinas diferentes. Um só padrão de acabamento.",
   servicesDetailed: [
     { title: "Branding",
-      desc: "Identidade visual completa: logo, sistema de cores, tipografia e manual de uso. Sua marca com uma linguagem que ninguém confunde.",
-      img: "images/work-01.jpg" },
+      desc: "Logo, paleta, tipografia e manual de uso. Sua marca ganha uma linguagem própria, aplicável em qualquer peça, que ninguém confunde com a do concorrente.",
+      img: "images/work/scope/01.webp" },
     { title: "Direção criativa",
-      desc: "Conceito, referência e direção de arte para campanhas e lançamentos. Eu defino o território visual e garanto que tudo saia no mesmo tom.",
-      img: "images/work-05.jpg" },
+      desc: "Conceito, referência e direção de arte para campanhas e lançamentos. Eu defino o território visual e garanto que a campanha inteira saia no mesmo tom.",
+      img: "images/work/dani-molino/01.webp" },
     { title: "Motion design",
-      desc: "Animação 2D, vinhetas, aberturas e microinterações. Movimento como linguagem, não como enfeite.",
-      img: "images/work-02.jpg" },
+      desc: "Animação 2D, vinhetas, aberturas e microinterações. Movimento que carrega a mensagem em vez de só enfeitar a tela.",
+      img: "images/work/nova/01.webp" },
     { title: "Landing pages",
-      desc: "Páginas de conversão rápidas e bem escritas, do wireframe ao código. Feitas para vender, não só para impressionar.",
-      img: "images/work-03.jpg" },
+      desc: "Páginas de conversão do texto ao código. Carregam rápido, funcionam no celular e são feitas para vender, não só para impressionar.",
+      img: "images/work/pousada-maya/01.webp" },
     { title: "Social media",
-      desc: "Direção de conteúdo, feed, stories e reels. Templates editáveis para o time manter o padrão sem depender de mim.",
-      img: "images/work-04.jpg" },
+      desc: "Direção de conteúdo, feed, stories e reels. Você recebe templates editáveis para o seu time manter o padrão sem depender de mim.",
+      img: "images/work/post-stenci/01.webp" },
     { title: "Design de interface",
-      desc: "UI e UX para produtos digitais, com design system escalável e entrega pronta para o time de desenvolvimento.",
-      img: "images/work-06.jpg" }
+      desc: "UI e UX para produtos digitais, com design system escalável e arquivos organizados para o time de desenvolvimento tocar sem travar.",
+      img: "images/work/fiveasy/01.webp" }
   ],
 
   /* ---------- processo ---------- */
@@ -174,39 +174,39 @@ window.SITE = {
   processTitle: "Quatro etapas, zero surpresa",
   process: [
     { step: "01", title: "Descoberta",
-      desc: "Entendo o negócio, o público e o que trava a decisão de compra. Sem isso, design vira chute caro." },
+      desc: "Entendo o negócio, quem compra e o que trava a decisão. Pular essa etapa é o que transforma design em chute caro." },
     { step: "02", title: "Direção",
-      desc: "Território visual, referências e conceito. Você aprova o rumo antes de eu gastar uma hora de execução." },
+      desc: "Território visual, referências e conceito. Você aprova o rumo antes de eu gastar a primeira hora de execução." },
     { step: "03", title: "Execução",
-      desc: "Design, movimento e código. Entregas parciais para você acompanhar e ajustar no caminho." },
+      desc: "Design, movimento e código. Entrego por partes, então você acompanha e ajusta no caminho em vez de descobrir tudo no fim." },
     { step: "04", title: "Entrega",
-      desc: "Arquivos organizados, manual de uso e handoff. Você sai com autonomia, não com dependência." }
+      desc: "Arquivos organizados, manual de uso e passagem de bastão. Você sai com autonomia, não preso a mim." }
   ],
 
   /* ---------- por que trabalhar comigo ---------- */
   benefitsLabel: "( por que eu )",
-  benefitsTitle: ["Design bom", "leva tempo —", "e trabalhar comigo", "economiza o seu"],
+  benefitsTitle: ["Design bom", "leva tempo.", "Trabalhar comigo", "economiza o seu"],
   benefitsIntro: "Empresas me procuram pela perspectiva e pelo instinto afiado.",
   benefits: [
-    "Trago uma direção visual premium que faz a marca se destacar de verdade.",
-    "Cuido do acabamento, do conceito até a última peça entregue.",
-    "Defino sistemas de design escaláveis que mantêm a marca consistente.",
-    "Alinho os seus objetivos com a minha experiência para tomar as decisões certas."
+    "Direção visual de nível premium, para a sua marca se destacar de verdade no meio do barulho.",
+    "Acabamento cuidado do conceito até a última peça entregue, sem ponta solta.",
+    "Sistemas de design escaláveis, que mantêm a marca coerente conforme a empresa cresce.",
+    "Suas metas na frente da minha vaidade. A decisão certa vence a ideia bonita."
   ],
 
   /* ---------- depoimentos ---------- */
   testimonialsLabel: "Depoimentos",
   testimonialsTitle: "Trabalho bom nasce de parceria.",
   testimonials: [
-    { quote: "Entregou uma identidade que finalmente parece do tamanho da empresa. Recebemos elogio de cliente na primeira semana.",
+    { quote: "A identidade finalmente parece do tamanho da empresa. Na primeira semana já veio elogio de cliente.",
       name: "Nome do Cliente", role: "CEO", company: "Empresa", tag: "Branding" },
-    { quote: "A landing subiu numa quinta e no fim do mês a taxa de conversão tinha dobrado. Direto ao ponto, sem enrolação.",
+    { quote: "A página subiu numa quinta. No fim do mês a conversão tinha dobrado. Direto ao ponto, sem enrolação.",
       name: "Nome do Cliente", role: "Head de Marketing", company: "Empresa", tag: "Landing Page" },
-    { quote: "O motion deu outro patamar para as campanhas. O feed inteiro passou a ter cara de marca grande.",
+    { quote: "O motion levou as campanhas para outro patamar. O feed inteiro ganhou cara de marca grande.",
       name: "Nome do Cliente", role: "Sócia", company: "Empresa", tag: "Motion" },
-    { quote: "Prazo cumprido, arquivo organizado e manual que o time consegue usar sozinho. Raro.",
+    { quote: "Prazo cumprido, arquivo organizado e um manual que o time usa sozinho. Isso é raro.",
       name: "Nome do Cliente", role: "Diretor de Arte", company: "Empresa", tag: "Design System" },
-    { quote: "Já é o terceiro projeto junto. Não procuro mais ninguém para esse tipo de trabalho.",
+    { quote: "Terceiro projeto juntos. Para esse tipo de trabalho eu não procuro mais ninguém.",
       name: "Nome do Cliente", role: "Fundador", company: "Empresa", tag: "Direção Criativa" }
   ],
 
@@ -219,29 +219,29 @@ window.SITE = {
   faqLabel: "Dúvidas comuns",
   faq: [
     { q: "Quanto custa um projeto?",
-      a: "Depende do escopo. Identidade visual completa e landing page têm faixas bem diferentes. Me manda o que você precisa que eu devolvo um orçamento fechado, sem surpresa no meio do caminho." },
+      a: "Depende do escopo. Identidade visual completa e landing page ficam em faixas bem diferentes. Me conte o que você precisa e eu devolvo um orçamento fechado, sem surpresa no meio do caminho." },
     { q: "Qual o prazo médio?",
-      a: "Landing page: 2 a 3 semanas. Identidade visual: 4 a 6 semanas. Motion varia muito com a duração e a complexidade. Sempre combino o prazo antes de começar." },
+      a: "Landing page fica em 2 a 3 semanas. Identidade visual, de 4 a 6. Motion varia com a duração e a complexidade da peça. O prazo é combinado antes de começar e eu cumpro." },
     { q: "Você trabalha com contrato?",
-      a: "Sempre. Contrato com escopo, prazo, número de revisões e forma de pagamento. Protege os dois lados." },
+      a: "Sempre. Escopo, prazo, número de revisões e forma de pagamento no papel. Protege os dois lados e evita conversa difícil lá na frente." },
     { q: "Quantas revisões estão incluídas?",
-      a: "Duas rodadas de ajuste em cada etapa. Como você aprova a direção antes da execução, na prática raramente chega a usar as duas." },
+      a: "Duas rodadas de ajuste por etapa. Como você aprova a direção antes da execução começar, na prática é raro precisar das duas." },
     { q: "Atende fora do Rio de Janeiro?",
-      a: "Sim. A maior parte dos projetos é remota — reuniões por chamada e entregas online. Estar no Rio só ajuda quando o projeto pede presença." },
+      a: "Sim. A maior parte dos projetos roda remota, com reuniões por chamada e entregas online. Estar no Rio só pesa quando o projeto pede presença física." },
     { q: "O que você precisa de mim para começar?",
-      a: "Um briefing simples: o que a empresa faz, quem é o público, o que já existe de material e uma referência do que você gosta. O resto eu puxo em conversa." }
+      a: "Um briefing simples: o que a empresa faz, quem é o público, o material que já existe e uma referência do que você gosta. O resto eu puxo em conversa." }
   ],
 
   /* ---------- CTA final ---------- */
   ctaTitle: "Vamos construir algo que as pessoas lembrem",
-  ctaSub: "De startup em começo de vida a empresa consolidada.",
+  ctaSub: "De startup em começo de vida a empresa consolidada. Resposta em até 1 dia útil.",
   ctaButton: "Falar comigo",
 
   /* ---------- textos longos ---------- */
   footerBlurb:
-    "Toda experiência digital forte nasce de um núcleo preciso. Trabalho com branding, " +
-    "identidade visual, motion design, landing pages e social media para transformar " +
-    "cada peça em valor real para o negócio.",
+    "Marca forte não é sorte, é decisão bem tomada. Trabalho com branding, identidade " +
+    "visual, motion design, landing pages e social media para que cada peça que sai " +
+    "daqui volte como resultado para o seu negócio.",
 
   /* ---------- navegação ---------- */
   nav: [
@@ -254,7 +254,12 @@ window.SITE = {
   /* ---------- mídia ----------
      Deixe "" para usar o fundo animado em CSS (padrão).
      Coloque seu arquivo em media/ e aponte aqui, ex: "media/hero.mp4" */
-  heroVideo: "media/hero.mp4",
+  /* O vídeo do hero fica FORA do repositório, num release do GitHub.
+     Assim ele pode ser grande e em alta qualidade sem pesar o site.
+     Para trocar: gere o novo arquivo e rode
+       gh release upload media-v1 caminho/hero-hq.mp4 --clobber
+     mantendo o mesmo nome, que a URL abaixo continua valendo. */
+  heroVideo: "https://github.com/williammx/portfolio-william/releases/download/media-v1/hero-hq.mp4",
   heroPoster: "media/hero-poster.webp",
   loaderVideo: "",
   galleryVideo: "",

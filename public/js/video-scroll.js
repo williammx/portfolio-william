@@ -38,7 +38,7 @@
         if (!manifest || !manifest.count) throw new Error('manifest vazio');
       } catch (err) {
         // sem frames: a seção some por completo, sem deixar buraco
-        console.warn(`[vscroll:${DIR}] frames indisponíveis —`, err.message);
+        console.warn(`[vscroll:${DIR}] frames indisponíveis:`, err.message);
         host.classList.add('is-empty');
         if (status) status.textContent = `Sem frames em /${DIR}`;
         return false;

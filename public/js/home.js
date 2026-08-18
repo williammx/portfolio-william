@@ -242,31 +242,41 @@
     if (!h1 || !Array.isArray(list) || list.length < 2) return;
 
     h1.innerHTML = `<span>${list[0]}</span>`;
-    let i = 0;
-
     if (reduce) return;
 
-    setInterval(() => {
-      const out = h1.firstElementChild;
-      i = (i + 1) % list.length;
+    const hold = (S.heroPhraseHold || 4200) / 1000;
+    let i = 0, tl = null;
 
+    /* setInterval continuava disparando com a aba em segundo plano enquanto
+       o GSAP ficava pausado — na volta várias trocas rodavam de uma vez e as
+       frases se acumulavam. gsap.delayedCall segue o mesmo relógio da
+       animação, então uma troca só começa quando a anterior termina. */
+    function swap() {
+      if (tl) tl.kill();
+
+      // sobra qualquer resto de uma troca interrompida
+      const spans = [...h1.children];
+      const out = spans.pop();
+      spans.forEach(s => s.remove());
+
+      i = (i + 1) % list.length;
       const next = document.createElement('span');
       next.innerHTML = list[i];
-      next.style.position = 'absolute';
-      h1.style.position = 'relative';
       h1.appendChild(next);
 
-      gsap.timeline({
+      tl = gsap.timeline({
         onComplete: () => {
-          out.remove();
-          next.style.position = '';
+          if (out) out.remove();
+          gsap.delayedCall(hold, swap);
         }
-      })
-        .to(out, { yPercent: -60, opacity: 0, duration: 0.55, ease: 'power2.in' })
-        .fromTo(next,
-          { yPercent: 60, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, 0.25);
-    }, S.heroPhraseHold || 4200);
+      });
+      if (out) tl.to(out, { yPercent: -60, opacity: 0, duration: 0.55, ease: 'power2.in' }, 0);
+      tl.fromTo(next,
+        { yPercent: 60, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.8, ease: 'expo.out' }, 0.25);
+    }
+
+    gsap.delayedCall(hold, swap);
   }
 
   /* ============ 2. CONTADOR DE SLIDES ============ */

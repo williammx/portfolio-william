@@ -157,10 +157,12 @@
   text-transform: uppercase;
   /* altura fixa evita o texto de apoio pular quando a frase troca */
   min-height: 2.3em;
-  display: flex; align-items: center; justify-content: center;
+  /* grid em vez de flex: as duas frases da transição ocupam a MESMA
+     célula e se sobrepõem. Em flex elas ficavam lado a lado. */
+  display: grid; place-items: center;
 }
-/* cada frase entra e sai por trás de uma máscara */
 .hero-claim h1 > span {
+  grid-area: 1 / 1;
   display: block; will-change: transform, opacity;
 }
 .hero-claim p {
